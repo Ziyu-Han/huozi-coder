@@ -1,7 +1,7 @@
 {
   "name": "huozi-coder-python",
   "displayName": "huozi-coder-python",
-  "description": "test version",
+  "description": "(test version) generate code for .py files",
   "version": "0.0.1",
   "publisher": "ziyu-hit",
   "icon": "small_logo.png",
@@ -201,7 +201,7 @@
           },
           "llm.disableUrlPathCompletion": {
             "type": "boolean",
-            "default": false,
+            "default": true,
             "description": "When setting `llm.url`, llm-ls will try to append the correct path to your URL if it doesn't end with such a path, e.g. for an OpenAI backend if it doesn't end with `/v1/completions`. Set this to `true` to disable this behavior."
           }
         }
