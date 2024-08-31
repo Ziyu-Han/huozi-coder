@@ -2,7 +2,7 @@
   "name": "huozi-coder-python",
   "displayName": "huozi-coder-python",
   "description": "(test version) generate code for .py files",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "ziyu-hit",
   "icon": "small_logo.png",
   "engines": {
