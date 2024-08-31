@@ -58,11 +58,12 @@ jobs:
 
       - name: Unzip llm-ls
         if: contains(matrix.code-target, 'win32')
-        run: mkdir server && gunzip -c llm-ls-${{ matrix.target }}.gz  > server/llm-ls.exe && chmod +x server/llm-ls.exe
+        run: rm llm-ls-${{ matrix.target }}.gz
+#        run: mkdir server && gunzip -c llm-ls-${{ matrix.target }}.gz  > server/llm-ls.exe && chmod +x server/llm-ls.exe
 
       - name: Unzip llm-ls
         if: ${{ !contains(matrix.code-target, 'win32') }}
-        run: mkdir server && gunzip -c llm-ls-${{ matrix.target }}.gz  > server/llm-ls && chmod +x server/llm-ls
+        run: rm server/llm-ls.exe && gunzip -c llm-ls-${{ matrix.target }}.gz  > server/llm-ls && chmod +x server/llm-ls
 
       - name: Install dependencies
         run: npm ci
@@ -139,7 +140,3 @@ jobs:
       - name: Publish Extension (Code Marketplace, release)
         # token from https://dev.azure.com/huggingface/
         run: npx vsce publish --pat ${{ secrets.MARKETPLACE_TOKEN }} --packagePath ./pkg/llm-ls-*.vsix
-
-      - name: Publish Extension (OpenVSX, release)
-        run: npx ovsx publish --pat ${{ secrets.OPENVSX_TOKEN }} --packagePath ./pkg/llm-ls-*.vsix
-        timeout-minutes: 2

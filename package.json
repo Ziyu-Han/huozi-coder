@@ -1,9 +1,9 @@
 {
-  "name": "huggingface-vscode",
-  "displayName": "llm-vscode",
-  "description": "LLM powered development for VS Code",
-  "version": "0.2.2",
-  "publisher": "HuggingFace",
+  "name": "huozi-coder-python",
+  "displayName": "huozi-coder-python",
+  "description": "test version",
+  "version": "0.0.1",
+  "publisher": "ziyu-hit",
   "icon": "small_logo.png",
   "engines": {
     "vscode": "^1.82.0"
@@ -11,26 +11,6 @@
   "galleryBanner": {
     "color": "#100f11",
     "theme": "dark"
-  },
-  "badges": [
-    {
-      "url": "https://img.shields.io/github/stars/huggingface/llm-vscode?style=social",
-      "description": "Star llm-vscode on Github",
-      "href": "https://github.com/huggingface/llm-vscode"
-    },
-    {
-      "url": "https://img.shields.io/twitter/follow/huggingface?style=social",
-      "description": "Follow Huggingface on Twitter",
-      "href": "https://twitter.com/huggingface"
-    }
-  ],
-  "homepage": "https://huggingface.co",
-  "repository": {
-    "url": "https://github.com/huggingface/llm-vscode.git",
-    "type": "git"
-  },
-  "bugs": {
-    "url": "https://github.com/huggingface/llm-vscode/issues"
   },
   "license": "Apache-2.0",
   "categories": [
@@ -42,8 +22,7 @@
     "assistant",
     "ai",
     "llm",
-    "development",
-    "huggingface"
+    "development"
   ],
   "activationEvents": [
     "*"
@@ -93,12 +72,12 @@
               "ollama/codellama:7b",
               "Custom"
             ],
-            "default": "hf/bigcode/starcoder2-15b",
+            "default": "Custom",
             "description": "Choose your model template from the dropdown"
           },
           "llm.modelId": {
             "type": "string",
-            "default": "bigcode/starcoder",
+            "default": "",
             "description": "Model id (ex: `bigcode/starcoder`), will be used to route your request to the appropriate model"
           },
           "llm.backend": {
@@ -117,7 +96,7 @@
               "string",
               "null"
             ],
-            "default": null,
+            "default": "http://36.103.203.203:23704/generate",
             "description": "HTTP URL of the backend, when null will use the default url for the Inference API"
           },
           "llm.fillInTheMiddle.enabled": {
@@ -127,24 +106,24 @@
           },
           "llm.fillInTheMiddle.prefix": {
             "type": "string",
-            "default": "<fim_prefix>",
+            "default": "<prefix>",
             "description": "Prefix token"
           },
           "llm.fillInTheMiddle.middle": {
             "type": "string",
-            "default": "<fim_middle>",
+            "default": "<middle>",
             "description": "Middle token"
           },
           "llm.fillInTheMiddle.suffix": {
             "type": "string",
-            "default": "<fim_suffix>",
+            "default": "<suffix>",
             "description": "Suffix token"
           },
           "llm.requestBody": {
             "type": "object",
             "default": {
               "parameters": {
-                "max_new_tokens": 60,
+                "max_new_tokens": 128,
                 "temperature": 0.2,
                 "top_p": 0.95
               }
@@ -216,7 +195,7 @@
               "array"
             ],
             "default": {
-              "pattern": "**"
+              "pattern": "**/*.py"
             },
             "description": "Filter documents to enable suggestions for"
           },
@@ -243,8 +222,7 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
+    "pretest": "npm run compile",
     "test": "node ./out/test/runTest.js"
   },
   "dependencies": {
