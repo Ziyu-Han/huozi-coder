@@ -25,6 +25,15 @@ let client: LanguageClient;
 let ctx: vscode.ExtensionContext;
 let loadingIndicator: vscode.StatusBarItem;
 
+let fillInTheMiddle = {
+	enabled: true,
+	prefix: "<fim_prefix>",
+	suffix: "<fim_suffix>",
+	middle: "<fim_middle>",
+}
+
+let tokensToClear: string[] = ["<|endoftext|>"];
+
 function createLoadingIndicator(): vscode.StatusBarItem {
 	let li = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 10);
 	li.text = "$(loading~spin) LLM";
@@ -34,7 +43,6 @@ function createLoadingIndicator(): vscode.StatusBarItem {
 
 export async function activate(context: vscode.ExtensionContext) {
 	ctx = context;
-	handleConfigTemplateChange(ctx);
 	const config = vscode.workspace.getConfiguration("llm");
 	// TODO: support TransportKind.socket
 	const binaryPath: string | null = config.get("lsp.binaryPath") as string | null;
@@ -156,26 +164,23 @@ export async function activate(context: vscode.ExtensionContext) {
 					return
 				}
 			}
-			let tokenizerConfig: any = config.get("tokenizer");
-			if (tokenizerConfig != null && tokenizerConfig.repository != null && tokenizerConfig.api_token == null) {
-				tokenizerConfig.api_token = await ctx.secrets.get('apiToken');
-			}
+			let tokenizerConfig: any = null;
 			let params = {
 				position,
 				textDocument: client.code2ProtocolConverter.asTextDocumentIdentifier(document),
-				model: config.get("modelId") as string,
-				backend: config.get("backend") as string,
+				model: "",
+				backend: "huggingface",
 				// url: config.get("url") as string | null,
 				url: "http://36.103.203.203:23704/generate",
-				tokensToClear: config.get("tokensToClear") as string[],
+				tokensToClear: tokensToClear,
 				apiToken: await ctx.secrets.get('apiToken'),
 				requestBody: config.get("requestBody") as object,
-				fim: config.get("fillInTheMiddle") as number,
+				fim: fillInTheMiddle,
 				contextWindow: config.get("contextWindow") as number,
 				tlsSkipVerifyInsecure: config.get("tlsSkipVerifyInsecure") as boolean,
 				ide: "vscode",
 				tokenizerConfig,
-				disableUrlPathCompletion: config.get("disableUrlPathCompletion") as boolean,
+				disableUrlPathCompletion: true,
 			};
 			try {
 				loadingIndicator.show()
@@ -219,22 +224,6 @@ export function deactivate() {
 		return undefined;
 	}
 	return client.stop();
-}
-
-function handleConfigTemplateChange(context: vscode.ExtensionContext) {
-	const listener = vscode.workspace.onDidChangeConfiguration(async event => {
-		if (event.affectsConfiguration('llm.configTemplate')) {
-			const config = vscode.workspace.getConfiguration("llm");
-			const configKey = config.get("configTemplate") as TemplateKey;
-			const template = templates[configKey];
-			// const template = templates[configKey];
-			if (template) {
-				const updatePromises = Object.entries(template).map(([key, val]) => config.update(key, val, vscode.ConfigurationTarget.Global));
-				await Promise.all(updatePromises);
-			}
-		}
-	});
-	context.subscriptions.push(listener);
 }
 
 // TODO: refactor to select only highlighted code

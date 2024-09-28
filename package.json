@@ -1,7 +1,7 @@
 {
   "name": "abacus",
   "displayName": "Abacus",
-  "description": "(test version) generate code for .py files",
+  "description": "Utilizing the Abacus large model to assist Python programming",
   "version": "0.0.4",
   "publisher": "HIT-SCIR",
   "icon": "small_logo.png",
@@ -60,56 +60,6 @@
             "type": "boolean",
             "default": true,
             "description": "Enable automatic suggestions"
-          },
-          "llm.configTemplate": {
-            "type": "string",
-            "enum": [
-              "hf/bigcode/starcoder2-15b",
-              "hf/codellama/CodeLlama-13b-hf",
-              "hf/Phind/Phind-CodeLlama-34B-v2",
-              "hf/WizardLM/WizardCoder-Python-34B-V1.0",
-              "hf/deepseek-ai/deepseek-coder-6.7b-base",
-              "ollama/codellama:7b",
-              "Custom"
-            ],
-            "default": "Custom",
-            "description": "Choose your model template from the dropdown"
-          },
-          "llm.modelId": {
-            "type": "string",
-            "default": "",
-            "description": "Model id (ex: `bigcode/starcoder`), will be used to route your request to the appropriate model"
-          },
-          "llm.backend": {
-            "type": "string",
-            "enum": [
-              "huggingface",
-              "ollama",
-              "openai",
-              "tgi"
-            ],
-            "default": "huggingface",
-            "description": "Backend used by the extension"
-          },
-          "llm.fillInTheMiddle.enabled": {
-            "type": "boolean",
-            "default": true,
-            "description": "Enable fill in the middle for the current model"
-          },
-          "llm.fillInTheMiddle.prefix": {
-            "type": "string",
-            "default": "<fim_prefix>",
-            "description": "Prefix token"
-          },
-          "llm.fillInTheMiddle.middle": {
-            "type": "string",
-            "default": "<fim_middle>",
-            "description": "Middle token"
-          },
-          "llm.fillInTheMiddle.suffix": {
-            "type": "string",
-            "default": "<fim_suffix>",
-            "description": "Suffix token"
           },
           "llm.requestBody": {
             "type": "object",
@@ -190,11 +140,6 @@
               "pattern": "**/*.py"
             },
             "description": "Filter documents to enable suggestions for"
-          },
-          "llm.disableUrlPathCompletion": {
-            "type": "boolean",
-            "default": true,
-            "description": "When setting `llm.url`, llm-ls will try to append the correct path to your URL if it doesn't end with such a path, e.g. for an OpenAI backend if it doesn't end with `/v1/completions`. Set this to `true` to disable this behavior."
           }
         }
       }
