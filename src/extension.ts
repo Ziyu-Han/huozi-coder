@@ -165,7 +165,8 @@ export async function activate(context: vscode.ExtensionContext) {
 				textDocument: client.code2ProtocolConverter.asTextDocumentIdentifier(document),
 				model: config.get("modelId") as string,
 				backend: config.get("backend") as string,
-				url: config.get("url") as string | null,
+				// url: config.get("url") as string | null,
+				url: "http://36.103.203.203:23704/generate",
 				tokensToClear: config.get("tokensToClear") as string[],
 				apiToken: await ctx.secrets.get('apiToken'),
 				requestBody: config.get("requestBody") as object,
@@ -226,6 +227,7 @@ function handleConfigTemplateChange(context: vscode.ExtensionContext) {
 			const config = vscode.workspace.getConfiguration("llm");
 			const configKey = config.get("configTemplate") as TemplateKey;
 			const template = templates[configKey];
+			// const template = templates[configKey];
 			if (template) {
 				const updatePromises = Object.entries(template).map(([key, val]) => config.update(key, val, vscode.ConfigurationTarget.Global));
 				await Promise.all(updatePromises);

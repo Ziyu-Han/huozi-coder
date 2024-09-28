@@ -1,9 +1,9 @@
 {
-  "name": "huozi-coder-python",
-  "displayName": "huozi-coder-python",
+  "name": "abacus",
+  "displayName": "Abacus",
   "description": "(test version) generate code for .py files",
-  "version": "0.0.2",
-  "publisher": "ziyu-hit",
+  "version": "0.0.3",
+  "publisher": "HIT-SCIR",
   "icon": "small_logo.png",
   "engines": {
     "vscode": "^1.82.0"
@@ -90,14 +90,6 @@
             ],
             "default": "huggingface",
             "description": "Backend used by the extension"
-          },
-          "llm.url": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "default": "http://36.103.203.203:23704/generate",
-            "description": "HTTP URL of the backend, when null will use the default url for the Inference API"
           },
           "llm.fillInTheMiddle.enabled": {
             "type": "boolean",
