@@ -2,7 +2,7 @@
   "name": "abacus",
   "displayName": "Abacus",
   "description": "Utilizing the Abacus large model to assist Python programming",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "HIT-SCIR",
   "icon": "small_logo.png",
   "engines": {
