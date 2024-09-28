@@ -2,7 +2,7 @@
   "name": "abacus",
   "displayName": "Abacus",
   "description": "(test version) generate code for .py files",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "HIT-SCIR",
   "icon": "small_logo.png",
   "engines": {
