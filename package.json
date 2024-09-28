@@ -98,17 +98,17 @@
           },
           "llm.fillInTheMiddle.prefix": {
             "type": "string",
-            "default": "<prefix>",
+            "default": "<fim_prefix>",
             "description": "Prefix token"
           },
           "llm.fillInTheMiddle.middle": {
             "type": "string",
-            "default": "<middle>",
+            "default": "<fim_middle>",
             "description": "Middle token"
           },
           "llm.fillInTheMiddle.suffix": {
             "type": "string",
-            "default": "<suffix>",
+            "default": "<fim_suffix>",
             "description": "Suffix token"
           },
           "llm.requestBody": {
