@@ -15,7 +15,7 @@
   "license": "Apache-2.0",
   "categories": [
     "Machine Learning",
-    "Programming Languages"
+    "Python"
   ],
   "keywords": [
     "code",
@@ -84,10 +84,6 @@
       {
         "key": "alt+shift+l",
         "command": "editor.action.inlineSuggest.trigger"
-      },
-      {
-        "key": "cmd+shift+a",
-        "command": "llm.attribution"
       }
     ]
   },
