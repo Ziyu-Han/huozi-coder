@@ -51,12 +51,12 @@
       {
         "title": "Abacus",
         "properties": {
-          "llm.enableAutoSuggest": {
+          "Abacus.enableAutoSuggest": {
             "type": "boolean",
             "default": true,
             "description": "Enable automatic suggestions"
           },
-          "llm.requestBody": {
+          "Abacus.requestBody": {
             "type": "object",
             "default": {
               "parameters": {
@@ -67,7 +67,7 @@
             },
             "description": "Can be adjusted according to requirements."
           },
-          "llm.documentFilter": {
+          "Abacus.documentFilter": {
             "type": [
               "object",
               "array"

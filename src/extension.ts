@@ -149,7 +149,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	ctx.subscriptions.push(attribution);
 	const provider: vscode.InlineCompletionItemProvider = {
 		async provideInlineCompletionItems(document, position, context, token) {
-			const config = vscode.workspace.getConfiguration("llm");
+			const config = vscode.workspace.getConfiguration("Abacus");
 			const autoSuggest = config.get("enableAutoSuggest") as boolean;
 			const requestDelay = 150;
 			if (context.triggerKind === vscode.InlineCompletionTriggerKind.Automatic && !autoSuggest) {
