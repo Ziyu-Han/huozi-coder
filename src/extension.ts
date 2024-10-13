@@ -36,7 +36,7 @@ let tokensToClear: string[] = ["<|endoftext|>"];
 
 function createLoadingIndicator(): vscode.StatusBarItem {
 	let li = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 10);
-	li.text = "$(loading~spin) LLM";
+	li.text = "$(loading~spin) Abacus";
 	li.tooltip = "Generating completions...";
 	return li;
 }
@@ -45,7 +45,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	ctx = context;
 	const config = vscode.workspace.getConfiguration("llm");
 	// TODO: support TransportKind.socket
-	const binaryPath: string | null = config.get("lsp.binaryPath") as string | null;
+	const binaryPath: string | null = null;
 	let command: string;
 	if (binaryPath) {
 		command = binaryPath;
@@ -62,7 +62,7 @@ export async function activate(context: vscode.ExtensionContext) {
 			command, transport: TransportKind.stdio, options: {
 				env: {
 					"RUST_BACKTRACE": "1",
-					"LLM_LOG_LEVEL": config.get("lsp.logLevel") as string,
+					"LLM_LOG_LEVEL": "warn",
 				}
 			}
 		},
@@ -72,20 +72,20 @@ export async function activate(context: vscode.ExtensionContext) {
 			options: {
 				env: {
 					"RUST_BACKTRACE": "1",
-					"LLM_LOG_LEVEL": config.get("lsp.logLevel") as string,
+					"LLM_LOG_LEVEL": "warn",
 				}
 			}
 		}
 	};
 
-	const outputChannel = vscode.window.createOutputChannel('LLM VS Code', { log: true });
+	const outputChannel = vscode.window.createOutputChannel('Abacus', { log: true });
 	const clientOptions: LanguageClientOptions = {
 		documentSelector: [{ scheme: "*" }],
 		outputChannel,
 	};
 	client = new LanguageClient(
-		'llm',
-		'LLM VS Code',
+		'abacus',
+		'Abacus',
 		serverOptions,
 		clientOptions
 	);
@@ -151,7 +151,7 @@ export async function activate(context: vscode.ExtensionContext) {
 		async provideInlineCompletionItems(document, position, context, token) {
 			const config = vscode.workspace.getConfiguration("llm");
 			const autoSuggest = config.get("enableAutoSuggest") as boolean;
-			const requestDelay = config.get("requestDelay") as number;
+			const requestDelay = 150;
 			if (context.triggerKind === vscode.InlineCompletionTriggerKind.Automatic && !autoSuggest) {
 				return;
 			}
@@ -176,8 +176,8 @@ export async function activate(context: vscode.ExtensionContext) {
 				apiToken: await ctx.secrets.get('apiToken'),
 				requestBody: config.get("requestBody") as object,
 				fim: fillInTheMiddle,
-				contextWindow: config.get("contextWindow") as number,
-				tlsSkipVerifyInsecure: config.get("tlsSkipVerifyInsecure") as boolean,
+				contextWindow: 2048,
+				tlsSkipVerifyInsecure: false,
 				ide: "vscode",
 				tokenizerConfig,
 				disableUrlPathCompletion: true,
@@ -232,8 +232,8 @@ export default async function highlightStackAttributions(): Promise<void> {
 	if (!document) return;
 
 	const config = vscode.workspace.getConfiguration("llm");
-	const attributionWindowSize = config.get("attributionWindowSize") as number;
-	const attributionEndpoint = config.get("attributionEndpoint") as string;
+	const attributionWindowSize = 250;
+	const attributionEndpoint = "https://stack.dataportraits.org/overlap";
 
 	// get cursor postion and offset
 	const cursorPosition = vscode.window.activeTextEditor?.selection.active;

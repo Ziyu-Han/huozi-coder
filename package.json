@@ -49,13 +49,8 @@
     ],
     "configuration": [
       {
-        "title": "Llm",
+        "title": "Abacus",
         "properties": {
-          "llm.requestDelay": {
-            "type": "integer",
-            "default": 150,
-            "description": "Delay between requests in milliseconds"
-          },
           "llm.enableAutoSuggest": {
             "type": "boolean",
             "default": true,
@@ -70,66 +65,7 @@
                 "top_p": 0.95
               }
             },
-            "description": "Whatever you set here will be sent as is as the HTTP POST request body to the chosen backend. Model and prompt will be added automatically."
-          },
-          "llm.contextWindow": {
-            "type": "integer",
-            "default": 2048,
-            "description": "Context window of the model"
-          },
-          "llm.tokensToClear": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "default": [
-              "<|endoftext|>"
-            ],
-            "description": "(Optional) Tokens that should be cleared from the resulting output. For example, in FIM mode, one usually wants to clear FIM token from resulting outout."
-          },
-          "llm.attributionWindowSize": {
-            "type": "integer",
-            "default": 250,
-            "description": "Number of characters to scan for code attribution"
-          },
-          "llm.attributionEndpoint": {
-            "type": "string",
-            "default": "https://stack.dataportraits.org/overlap",
-            "description": "Endpoint to which attribution request will be sent to (https://stack.dataportraits.org/overlap for the stack)"
-          },
-          "llm.tlsSkipVerifyInsecure": {
-            "type": "boolean",
-            "default": false,
-            "description": "Skip TLS verification for insecure connections"
-          },
-          "llm.lsp.binaryPath": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "default": null,
-            "description": "Path to llm-ls binary, useful for debugging or when building from source"
-          },
-          "llm.lsp.port": {
-            "type": [
-              "number",
-              "null"
-            ],
-            "default": null,
-            "description": "When running llm-ls with `--port`, port for the llm-ls server"
-          },
-          "llm.lsp.logLevel": {
-            "type": "string",
-            "default": "warn",
-            "description": "llm-ls log level"
-          },
-          "llm.tokenizer": {
-            "type": [
-              "object",
-              "null"
-            ],
-            "default": null,
-            "description": "Tokenizer configuration for the model, check out the documentation for more details"
+            "description": "Can be adjusted according to requirements."
           },
           "llm.documentFilter": {
             "type": [
