@@ -43,7 +43,7 @@ function createLoadingIndicator(): vscode.StatusBarItem {
 
 export async function activate(context: vscode.ExtensionContext) {
 	ctx = context;
-	const config = vscode.workspace.getConfiguration("llm");
+	const config = vscode.workspace.getConfiguration("Abacus");
 	// TODO: support TransportKind.socket
 	const binaryPath: string | null = null;
 	let command: string;
