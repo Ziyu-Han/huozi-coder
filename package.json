@@ -2,7 +2,7 @@
   "name": "abacus",
   "displayName": "Abacus",
   "description": "Utilizing the Abacus large model to assist Python programming",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "publisher": "HIT-SCIR",
   "icon": "small_logo.png",
   "engines": {
@@ -48,6 +48,10 @@
       {
         "command": "llm.attribution",
         "title": "Llm: Show Code Attribution"
+      },
+      {
+        "command": "abacus.regenerateSuggestion",
+        "title": "Regenerate Suggestion"
       }
     ],
     "configuration": [
@@ -87,6 +91,10 @@
       {
         "key": "alt+shift+l",
         "command": "editor.action.inlineSuggest.trigger"
+      },
+      {
+        "key": "alt+shift+r",
+        "command": "Abacus.regenerateSuggestion"
       }
     ]
   },

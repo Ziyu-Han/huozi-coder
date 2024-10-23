@@ -211,9 +211,7 @@ export async function activate(context: vscode.ExtensionContext) {
 					vscode.window.showErrorMessage(err_msg);
 				}
 			}
-
 		},
-
 	};
 	const documentFilter = config.get("documentFilter") as DocumentFilter | DocumentFilter[];
 	vscode.languages.registerInlineCompletionItemProvider(documentFilter, provider);

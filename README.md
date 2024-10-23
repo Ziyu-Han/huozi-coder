@@ -16,21 +16,21 @@
 ## 2 自定义配置
 ### 2.1 更改文件过滤器
 按下`Ctrl+,`打开vscode配置页面，搜索Abacus，点击`Abacus: Document Filter`条目下的`Edit in settings.json`  
-![document_filter_1.png](images/document_filter_1.png)
+![document_filter_1.png](https://raw.githubusercontent.com/Ziyu-Han/huozi-coder/release/v0.0.11/images/document_filter_1.png)
 修改`Abacus.documentFilter`中的pattern列表，默认为"**/*.py"  
-![document_filter_2.png](images/document_filter_2.png)
+![document_filter_2.png](https://raw.githubusercontent.com/Ziyu-Han/huozi-coder/release/v0.0.11/images/document_filter_2.png)
 ### 2.2 关闭自动生成
 按下`Ctrl+,`打开vscode配置页面，搜索Abacus，取消勾选`Abacus: Enable Auto Suggest`  
-![auto_generate.png](images/auto_generate.png)
+![auto_generate.png](https://raw.githubusercontent.com/Ziyu-Han/huozi-coder/release/v0.0.11/images/auto_generate.png)
 ### 2.3 自定义推理参数
 按下`Ctrl+,`打开vscode配置页面，搜索Abacus，点击`Abacus: Request Body`条目下的`Edit in settings.json`  
-![parameters_1.png](images/parameters_1.png)
+![parameters_1.png](https://raw.githubusercontent.com/Ziyu-Han/huozi-coder/release/v0.0.11/images/parameters_1.png)
 三个可配置参数自上而下依次为token数、温度与采样率  
-![parameters_2.png](images/parameters_2.png)
+![parameters_2.png](https://raw.githubusercontent.com/Ziyu-Han/huozi-coder/release/v0.0.11/images/parameters_2.png)
 
 ### 2.4 自定义热键
 按下`Ctrl+Shift+P`打开命令面板，点击`Preferences: Open Keyboard Shortcuts (JSON)`  
-![keybinding_1.png](images/keybinding_1.png)  
+![keybinding_1.png](https://raw.githubusercontent.com/Ziyu-Han/huozi-coder/release/v0.0.11/images/keybinding_1.png)  
 在打开的文件中添加新的配置项，格式如下
 ```
     {
