@@ -10,9 +10,9 @@
   - [3 相关链接](#3-相关链接)  
 ## 1 使用方法
 打开任意后缀名为“.py”的文件，将光标置于想要填充代码的位置。有两种方式可以触发生成建议代码：  
-①按下`Alt+Shift+L`（Mac系统为`Cmd+Shift+L`）  
-②对代码进行任意修改（可以通过配置关闭，[关闭自动生成](#22-关闭自动生成)）  
-生成建议代码后，按下`TAB`接受全部，按下`Ctrl+→`可以向右接受一个词。如果生成了多个建议代码，可以按下`Alt+]`切换。  
+①按下`Alt+Shift+L`（Mac系统为`Option+Shift+L`）  
+②对代码进行任意修改（可以通过配置关闭）  
+生成建议代码后，按下`TAB`接受全部，按下`Ctrl+→`(Mac系统为`Command+→`)可以向右接受一个词。如果生成了多个建议代码，可以按下`Alt+]`（Mac系统为`Option+]`）切换。  
 ## 2 自定义配置
 ### 2.1 更改文件过滤器
 按下`Ctrl+,`打开vscode配置页面，搜索Abacus，点击`Abacus: Document Filter`条目下的`Edit in settings.json`  
@@ -40,7 +40,13 @@
     }
 ```
 
-## 3 相关链接
+## 3 常见错误及解决方法
+### 3.1 兼容性
+运行本插件需要vscode版本至少为1.82.0。  
+若操作系统为linux，还需要GLIBC版本至少为2.32（可手动升级）。
+### 3.2 serde json error: EOF while parsing a value at line 1 column 0
+此报错一般为网络环境导致，请确保关闭网络代理后重启vscode。
+## 4 相关链接
 llm-vscode项目地址：https://github.com/huggingface/llm-vscode  
 珠算代码大模型GitHub主页：https://github.com/HIT-SCIR/Abacus  
 珠算代码大模型公众号介绍：https://mp.weixin.qq.com/s/T24_U-aR1WuwQh9iDjCWCg
