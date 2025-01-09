@@ -171,7 +171,7 @@ export async function activate(context: vscode.ExtensionContext) {
 				model: "",
 				backend: "huggingface",
 				// url: config.get("url") as string | null,
-				url: "http://36.103.203.203:23704/generate",
+				url: "https://huozi.8wss.com/abacus-copilot/generate",
 				tokensToClear: tokensToClear,
 				apiToken: await ctx.secrets.get('apiToken'),
 				requestBody: config.get("requestBody") as object,
