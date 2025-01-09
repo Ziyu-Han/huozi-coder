@@ -170,7 +170,7 @@ export async function activate(context: vscode.ExtensionContext) {
 				textDocument: client.code2ProtocolConverter.asTextDocumentIdentifier(document),
 				model: "",
 				backend: "huggingface",
-				//  url: config.get("url") as string | null,
+				// url: config.get("url") as string | null,
 				url: "https://huozi.8wss.com/abacus-copilot/generate",
 				tokensToClear: tokensToClear,
 				apiToken: await ctx.secrets.get('apiToken'),
