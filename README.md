@@ -16,21 +16,21 @@
 ## 2 自定义配置
 ### 2.1 更改文件过滤器
 按下`Ctrl+,`打开vscode配置页面，搜索Abacus，点击`Abacus: Document Filter`条目下的`Edit in settings.json`  
-![document_filter_1.png](https://img.picui.cn/free/2024/11/01/67247023331e7.png)
+![document_filter_1.png](https://www.helloimg.com/i/2025/01/22/6790aad9773e1.png)
 修改`Abacus.documentFilter`中的pattern列表，默认为"**/*.py"  
-![document_filter_2.png](https://img.picui.cn/free/2024/11/01/6724702328442.png)
+![document_filter_2.png](https://www.helloimg.com/i/2025/01/22/6790aad8dd37b.png)
 ### 2.2 关闭自动生成
 按下`Ctrl+,`打开vscode配置页面，搜索Abacus，取消勾选`Abacus: Enable Auto Suggest`  
-![auto_generate.png](https://img.picui.cn/free/2024/11/01/6724702325c80.png)
+![auto_generate.png](https://www.helloimg.com/i/2025/01/22/6790aadbf0d79.png)
 ### 2.3 自定义推理参数
 按下`Ctrl+,`打开vscode配置页面，搜索Abacus，点击`Abacus: Request Body`条目下的`Edit in settings.json`  
-![parameters_1.png](https://img.picui.cn/free/2024/11/01/67247023331b9.png)
+![parameters_1.png](https://www.helloimg.com/i/2025/01/22/6790aad9b3b1a.png)
 三个可配置参数自上而下依次为token数、温度与采样率  
-![parameters_2.png](https://img.picui.cn/free/2024/11/01/6724702517b39.png)
+![parameters_2.png](https://www.helloimg.com/i/2025/01/22/6790aad97f6e0.png)
 
 ### 2.4 自定义热键
 按下`Ctrl+Shift+P`打开命令面板，点击`Preferences: Open Keyboard Shortcuts (JSON)`  
-![keybinding_1.png](https://img.picui.cn/free/2024/11/01/67247023347cf.png)  
+![keybinding_1.png](https://www.helloimg.com/i/2025/01/22/6790aad939fe0.png)  
 在打开的文件中添加新的配置项，格式如下
 ```
     {
